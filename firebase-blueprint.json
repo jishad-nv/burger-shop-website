@@ -1,0 +1,494 @@
+{
+  "entities": {
+    "AdminUser": {
+      "title": "AdminUser",
+      "description": "Authorized administrator account for the ZaidBites Admin Dashboard.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Firebase Auth UID of the administrator.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Verified email address of the administrator.",
+          "minLength": 3,
+          "maxLength": 120
+        },
+        "name": {
+          "type": "string",
+          "description": "Display name of the administrator.",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "role": {
+          "type": "string",
+          "description": "Administrative privilege tier.",
+          "enum": ["super_admin", "admin", "manager"]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the admin record was created."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the admin record was last updated."
+        }
+      },
+      "required": ["uid", "email", "name", "role", "createdAt", "updatedAt"]
+    },
+    "FoodCategory": {
+      "title": "FoodCategory",
+      "description": "Main food ordering category displayed on the ZaidBites storefront.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique category identifier.",
+          "enum": ["burgers", "pizza", "rolls", "drinks"]
+        },
+        "name": {
+          "type": "string",
+          "description": "Display title of the category.",
+          "minLength": 1,
+          "maxLength": 60
+        },
+        "path": {
+          "type": "string",
+          "description": "Route path for the category page.",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "tagline": {
+          "type": "string",
+          "description": "Short culinary tagline displayed on the category card.",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "itemCount": {
+          "type": "string",
+          "description": "Item count and starting price label.",
+          "minLength": 1,
+          "maxLength": 60
+        },
+        "image": {
+          "type": "string",
+          "description": "Category showcase image URL or asset path.",
+          "minLength": 1,
+          "maxLength": 600000
+        },
+        "accentColor": {
+          "type": "string",
+          "description": "Hex accent color for category branding.",
+          "minLength": 4,
+          "maxLength": 30
+        },
+        "accentGradient": {
+          "type": "string",
+          "description": "CSS radial gradient backdrop for the category card.",
+          "minLength": 10,
+          "maxLength": 240
+        },
+        "displayOrder": {
+          "type": "integer",
+          "description": "Numeric sort order for rendering categories."
+        },
+        "isEnabled": {
+          "type": "boolean",
+          "description": "Whether the category is visible and active on the website."
+        },
+        "visibility": {
+          "type": "string",
+          "description": "Public storefront visibility marker.",
+          "enum": ["public"]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the category was created."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the category was last updated."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "path",
+        "tagline",
+        "itemCount",
+        "image",
+        "accentColor",
+        "accentGradient",
+        "displayOrder",
+        "isEnabled",
+        "visibility",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "FoodProductDoc": {
+      "title": "FoodProductDoc",
+      "description": "Menu food item managed via the Admin Dashboard and displayed on category pages.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique product identifier.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "name": {
+          "type": "string",
+          "description": "Product title.",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "category": {
+          "type": "string",
+          "description": "Parent category ID.",
+          "enum": ["burgers", "pizza", "rolls", "drinks"]
+        },
+        "shortDescription": {
+          "type": "string",
+          "description": "Concise card description.",
+          "minLength": 1,
+          "maxLength": 300
+        },
+        "fullDescription": {
+          "type": "string",
+          "description": "Detailed modal description.",
+          "minLength": 1,
+          "maxLength": 800
+        },
+        "price": {
+          "type": "number",
+          "description": "Base price in INR."
+        },
+        "originalPrice": {
+          "type": "number",
+          "description": "Strikethrough comparison price in INR."
+        },
+        "image": {
+          "type": "string",
+          "description": "Product image URL, asset path, or compressed data URI.",
+          "minLength": 1,
+          "maxLength": 600000
+        },
+        "isVeg": {
+          "type": "boolean",
+          "description": "Whether the product is vegetarian."
+        },
+        "isSpicy": {
+          "type": "boolean",
+          "description": "Whether the product is spicy."
+        },
+        "badge": {
+          "type": "string",
+          "description": "Highlight badge label such as Bestseller or Chef Special.",
+          "minLength": 0,
+          "maxLength": 40
+        },
+        "isFeatured": {
+          "type": "boolean",
+          "description": "Whether the product is marked as Featured / Bestseller."
+        },
+        "isAvailable": {
+          "type": "boolean",
+          "description": "Whether the product can currently be ordered."
+        },
+        "stockQuantity": {
+          "type": "integer",
+          "description": "Current available inventory count."
+        },
+        "lowStockThreshold": {
+          "type": "integer",
+          "description": "Threshold at or below which low-stock warnings trigger."
+        },
+        "prepTime": {
+          "type": "string",
+          "description": "Estimated preparation time label.",
+          "minLength": 1,
+          "maxLength": 30
+        },
+        "calories": {
+          "type": "string",
+          "description": "Calorie count label.",
+          "minLength": 1,
+          "maxLength": 30
+        },
+        "rating": {
+          "type": "number",
+          "description": "Customer rating between 1.0 and 5.0."
+        },
+        "visibility": {
+          "type": "string",
+          "description": "Public catalog visibility marker.",
+          "enum": ["public"]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the product was created."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the product was last updated."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "category",
+        "shortDescription",
+        "fullDescription",
+        "price",
+        "originalPrice",
+        "image",
+        "isVeg",
+        "isSpicy",
+        "badge",
+        "isFeatured",
+        "isAvailable",
+        "stockQuantity",
+        "lowStockThreshold",
+        "prepTime",
+        "calories",
+        "rating",
+        "visibility",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "PromoCodeDoc": {
+      "title": "PromoCodeDoc",
+      "description": "Discount promo code managed by admins and applied during checkout.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Uppercase promo code string.",
+          "minLength": 2,
+          "maxLength": 30,
+          "pattern": "^[A-Z0-9_\\-]+$"
+        },
+        "type": {
+          "type": "string",
+          "description": "Discount calculation type.",
+          "enum": ["percent", "flat"]
+        },
+        "value": {
+          "type": "number",
+          "description": "Discount percentage or flat INR amount."
+        },
+        "description": {
+          "type": "string",
+          "description": "Promo code display description.",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "minOrderAmount": {
+          "type": "number",
+          "description": "Minimum cart subtotal in INR required to apply the promo."
+        },
+        "expiryDate": {
+          "type": "string",
+          "description": "Expiration date in YYYY-MM-DD format.",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "isActive": {
+          "type": "boolean",
+          "description": "Whether the promo code can currently be redeemed."
+        },
+        "visibility": {
+          "type": "string",
+          "description": "Public storefront visibility marker.",
+          "enum": ["public"]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the promo code was created."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the promo code was last updated."
+        }
+      },
+      "required": [
+        "code",
+        "type",
+        "value",
+        "description",
+        "minOrderAmount",
+        "expiryDate",
+        "isActive",
+        "visibility",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "CustomerOrder": {
+      "title": "CustomerOrder",
+      "description": "Customer food order placed on ZaidBites and managed in real time via the Admin Dashboard.",
+      "type": "object",
+      "properties": {
+        "orderNumber": {
+          "type": "string",
+          "description": "Human-readable unique order reference (e.g. ZB-849201).",
+          "minLength": 3,
+          "maxLength": 40
+        },
+        "customerId": {
+          "type": "string",
+          "description": "Authenticated Firebase UID of the customer who placed the order.",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "customerEmail": {
+          "type": "string",
+          "format": "email",
+          "description": "Verified email address of the customer.",
+          "minLength": 3,
+          "maxLength": 120
+        },
+        "customerName": {
+          "type": "string",
+          "description": "Full name of the customer.",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "customerPhone": {
+          "type": "string",
+          "description": "Contact phone number for delivery.",
+          "minLength": 5,
+          "maxLength": 30
+        },
+        "deliveryAddress": {
+          "type": "string",
+          "description": "Full street address for delivery.",
+          "minLength": 5,
+          "maxLength": 400
+        },
+        "items": {
+          "type": "array",
+          "description": "Bounded list (1..20) of ordered line item maps."
+        },
+        "itemsSummary": {
+          "type": "string",
+          "description": "Formatted summary of ordered items and quantities.",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "totalItemsCount": {
+          "type": "integer",
+          "description": "Total quantity of items in the order."
+        },
+        "subtotal": {
+          "type": "number",
+          "description": "Order subtotal before discount and delivery fee."
+        },
+        "discount": {
+          "type": "number",
+          "description": "Discount amount applied via promo code."
+        },
+        "promoCode": {
+          "type": "string",
+          "description": "Applied promo code string or empty string.",
+          "minLength": 0,
+          "maxLength": 30
+        },
+        "deliveryFee": {
+          "type": "number",
+          "description": "Delivery fee in INR."
+        },
+        "finalTotal": {
+          "type": "number",
+          "description": "Final payable order total in INR."
+        },
+        "paymentMethod": {
+          "type": "string",
+          "description": "Selected payment method.",
+          "enum": ["Cash on Delivery", "UPI / QR Pay", "Card on Delivery"]
+        },
+        "status": {
+          "type": "string",
+          "description": "Real-time kitchen and delivery order status.",
+          "enum": [
+            "New Order",
+            "Confirmed",
+            "Preparing",
+            "Out for Delivery",
+            "Delivered",
+            "Cancelled"
+          ]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the order was placed."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when the order status was last updated."
+        }
+      },
+      "required": [
+        "orderNumber",
+        "customerId",
+        "customerEmail",
+        "customerName",
+        "customerPhone",
+        "deliveryAddress",
+        "items",
+        "itemsSummary",
+        "totalItemsCount",
+        "subtotal",
+        "discount",
+        "promoCode",
+        "deliveryFee",
+        "finalTotal",
+        "paymentMethod",
+        "status",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/admins/{adminId}": {
+      "schema": "AdminUser",
+      "description": "Stores authorized administrator profiles for RBAC validation."
+    },
+    "/categories/{categoryId}": {
+      "schema": "FoodCategory",
+      "description": "Stores the 4 main ZaidBites food categories with ordering and status."
+    },
+    "/products/{productId}": {
+      "schema": "FoodProductDoc",
+      "description": "Stores all food items, prices, stock quantities, and availability."
+    },
+    "/promoCodes/{promoId}": {
+      "schema": "PromoCodeDoc",
+      "description": "Stores promotional discount codes, minimum order amounts, and expiry dates."
+    },
+    "/orders/{orderId}": {
+      "schema": "CustomerOrder",
+      "description": "Stores customer orders with PII isolated to the order owner and verified admins."
+    }
+  }
+}
