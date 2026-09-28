@@ -1,0 +1,6 @@
+{
+  "name": "ZaidBites — Interactive Food Showcase",
+  "description": "A modern, interactive fast-food showcase featuring animated hero transitions for gourmet burgers, wraps, and artisan pizzas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
