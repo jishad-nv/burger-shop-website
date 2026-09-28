@@ -168,7 +168,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 duration: shouldReduceMotion ? 0.01 : 0.38,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className={`font-display-hero text-white text-center whitespace-nowrap text-[5.4rem] sm:text-[9.8rem] md:text-[14rem] lg:text-[18.5rem] xl:text-[21.5rem] drop-shadow-[0_10px_28px_rgba(0,0,0,0.08)] will-change-transform ${currentSlide.titleTracking}`}
+              className={`font-display-hero text-white text-center whitespace-nowrap text-[3.8rem] xs:text-[4.6rem] sm:text-[9.8rem] md:text-[14rem] lg:text-[18.5rem] xl:text-[21.5rem] drop-shadow-[0_10px_28px_rgba(0,0,0,0.08)] will-change-transform ${currentSlide.titleTracking}`}
             >
               {currentSlide.title}
             </motion.h1>

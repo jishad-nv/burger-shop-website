@@ -73,7 +73,7 @@ export const CinematicPizzaAnimation: React.FC<CinematicPizzaAnimationProps> = (
   return (
     <div
       ref={containerRef}
-      className="relative w-full rounded-[2rem] overflow-hidden bg-gradient-to-br from-[#231006] via-[#311608] to-[#190B04] border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.35)] p-6 sm:p-10 lg:p-12 my-10"
+      className="relative w-full rounded-2xl sm:rounded-[2rem] overflow-hidden bg-gradient-to-br from-[#231006] via-[#311608] to-[#190B04] border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.35)] p-4 sm:p-10 lg:p-12 my-8 sm:my-10"
     >
       {/* Dynamic Wood-Fired Oven Ambient Glow */}
       <motion.div
@@ -91,19 +91,19 @@ export const CinematicPizzaAnimation: React.FC<CinematicPizzaAnimationProps> = (
         }}
       />
 
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-center">
         {/* Left Column: Stage Progress & Controls */}
-        <div className="lg:col-span-5 space-y-6 text-white">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EC7A24]/25 border border-[#EC7A24]/45 text-[#FFA94D] text-xs font-extrabold uppercase tracking-widest">
-            <Flame className="w-3.5 h-3.5" />
+        <div className="lg:col-span-5 space-y-4 sm:space-y-6 text-white">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#EC7A24]/25 border border-[#EC7A24]/45 text-[#FFA94D] text-[11px] sm:text-xs font-extrabold uppercase tracking-widest">
+            <Flame className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
             <span>900°F Wood-Fired Craft</span>
           </div>
 
           <div>
-            <h3 className="font-display-hero text-4xl sm:text-5xl lg:text-6xl text-white tracking-wide leading-[0.92]">
+            <h3 className="font-display-hero text-3xl sm:text-5xl lg:text-6xl text-white tracking-wide leading-tight sm:leading-[0.92]">
               FROM DOUGH TO CHEESE PULL
             </h3>
-            <p className="mt-3 text-sm sm:text-base text-white/75 leading-relaxed">
+            <p className="mt-2 sm:mt-3 text-xs sm:text-base text-white/75 leading-relaxed">
               Watch our 48-hour fermented dough spin out, swirl with crushed San Marzano tomatoes, rain down fresh mozzarella and toppings, blister in the brick oven, and slice with a molten cheese pull.
             </p>
           </div>
@@ -181,10 +181,10 @@ export const CinematicPizzaAnimation: React.FC<CinematicPizzaAnimationProps> = (
         </div>
 
         {/* Right Column: Interactive Pizza Making, Slicing & Cheese-Pull Stage */}
-        <div className="lg:col-span-7 relative h-[420px] sm:h-[480px] flex items-center justify-center select-none">
+        <div className="lg:col-span-7 relative h-[360px] sm:h-[480px] flex items-center justify-center select-none overflow-hidden sm:overflow-visible">
           <div
             key={playKey}
-            className="relative w-[320px] sm:w-[400px] h-[320px] sm:h-[400px] flex items-center justify-center"
+            className="relative w-[280px] xs:w-[320px] sm:w-[400px] h-[280px] xs:h-[320px] sm:h-[400px] flex items-center justify-center"
           >
             {/* Oven Flame Ring Flash during Stage 5 */}
             <AnimatePresence>

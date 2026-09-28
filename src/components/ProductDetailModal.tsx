@@ -121,21 +121,21 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             role="dialog"
             aria-modal="true"
             aria-labelledby="modal-product-title"
-            className="relative z-10 w-full max-w-4xl bg-white rounded-[2rem] shadow-[0_32px_90px_rgba(0,0,0,0.45)] overflow-hidden grid grid-cols-1 md:grid-cols-12 max-h-[90vh]"
+            className="relative z-10 w-full max-w-4xl bg-white rounded-t-3xl sm:rounded-[2rem] shadow-[0_32px_90px_rgba(0,0,0,0.45)] overflow-hidden grid grid-cols-1 md:grid-cols-12 max-h-[92vh] sm:max-h-[90vh]"
           >
             {/* Close Button */}
             <button
               type="button"
               onClick={onClose}
               aria-label="Close product details"
-              className="absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-black/75 hover:bg-black text-white flex items-center justify-center transition-transform duration-150 hover:scale-105 cursor-pointer"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 z-30 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/75 hover:bg-black text-white flex items-center justify-center transition-transform duration-150 hover:scale-105 cursor-pointer"
             >
-              <X className="w-4 h-4" />
+              <X className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
 
             {/* Left Column: Large Showcase Image Stage */}
             <div
-              className="md:col-span-5 relative min-h-[260px] sm:min-h-[340px] flex flex-col items-center justify-center p-6 overflow-hidden"
+              className="md:col-span-5 relative min-h-[200px] xs:min-h-[230px] sm:min-h-[340px] flex flex-col items-center justify-center p-4 sm:p-6 overflow-hidden"
               style={{
                 background:
                   product.stageGradient ||
@@ -149,25 +149,25 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               }}
             >
               {/* Badges */}
-              <div className="absolute top-4 left-4 z-20 flex flex-wrap items-center gap-1.5">
+              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-20 flex flex-wrap items-center gap-1 sm:gap-1.5">
                 {product.badge && (
-                  <span className="px-3 py-1 rounded-full bg-black/80 text-white text-[11px] sm:text-xs font-semibold tracking-normal">
+                  <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-black/80 text-white text-[10px] sm:text-xs font-semibold tracking-normal">
                     {product.badge}
                   </span>
                 )}
                 {product.isSpicy && (
-                  <span className="px-2.5 py-1 rounded-full bg-[#EF3E36] text-white text-[11px] sm:text-xs font-semibold tracking-normal flex items-center gap-1">
-                    <Flame className="w-3 h-3 fill-current" />
+                  <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-[#EF3E36] text-white text-[10px] sm:text-xs font-semibold tracking-normal flex items-center gap-1">
+                    <Flame className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-current" />
                     Spicy
                   </span>
                 )}
                 <span
-                  className={`px-2.5 py-1 rounded-full bg-white/95 text-[11px] sm:text-xs font-semibold tracking-normal flex items-center gap-1.5 ${
+                  className={`px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-white/95 text-[10px] sm:text-xs font-semibold tracking-normal flex items-center gap-1 sm:gap-1.5 ${
                     product.isVeg ? 'text-[#2B8A3E]' : 'text-[#C92A2A]'
                   }`}
                 >
                   <span
-                    className={`w-2 h-2 rounded-full ${
+                    className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full ${
                       product.isVeg ? 'bg-[#2B8A3E]' : 'bg-[#C92A2A]'
                     }`}
                   />
@@ -178,7 +178,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               <motion.div
                 animate={{ y: [0, -8, 0], rotate: [0, 1.5, 0] }}
                 transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }}
-                className="w-56 h-56 sm:w-64 sm:h-64 flex items-center justify-center z-10"
+                className="w-40 h-40 xs:w-48 xs:h-48 sm:w-64 sm:h-64 flex items-center justify-center z-10"
                 style={{ filter: product.dishFilter || 'none' }}
               >
                 <TransparentFoodImage
@@ -189,13 +189,13 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               </motion.div>
 
               {/* Bottom Meta Strip */}
-              <div className="absolute bottom-4 inset-x-4 z-20 flex items-center justify-between px-3.5 py-2 rounded-2xl bg-black/75 backdrop-blur-md text-white text-xs sm:text-[13px] font-medium">
+              <div className="absolute bottom-3 inset-x-3 sm:bottom-4 sm:inset-x-4 z-20 flex items-center justify-between px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl sm:rounded-2xl bg-black/75 backdrop-blur-md text-white text-[11px] sm:text-[13px] font-medium">
                 <span className="flex items-center gap-1">
-                  <Star className="w-3.5 h-3.5 text-[#FCC419] fill-current" />
+                  <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#FCC419] fill-current" />
                   {product.rating.toFixed(1)} Rating
                 </span>
                 <span className="flex items-center gap-1">
-                  <Clock className="w-3.5 h-3.5 text-[#F59F00]" />
+                  <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#F59F00]" />
                   {product.prepTime}
                 </span>
                 <span>{product.calories}</span>
@@ -203,7 +203,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             </div>
 
             {/* Right Column: Full Product Details, Customizations & Quantity Selector */}
-            <div className="md:col-span-7 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto max-h-[62vh] md:max-h-[90vh]">
+            <div className="md:col-span-7 p-4 sm:p-8 flex flex-col justify-between overflow-y-auto max-h-[58vh] md:max-h-[90vh]">
               <div className="space-y-5">
                 <div>
                   <span className="text-xs sm:text-[13px] font-semibold tracking-normal text-[#D8740A]">

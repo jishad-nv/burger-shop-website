@@ -26,7 +26,7 @@ export interface NavbarProps {
  * Playful white cartoon chef/burger mascot emblem matching the top-left brand logo.
  */
 export const BrandMascotLogo: React.FC<{ className?: string; accentColor?: string }> = ({
-  className = 'w-9 h-9 sm:w-10 sm:h-10 text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.12)]',
+  className = 'w-8 h-8 sm:w-10 sm:h-10 text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.12)]',
   accentColor = '#E58619',
 }) => (
   <svg
@@ -152,26 +152,27 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
       } ${
         isScrolled
           ? 'py-2 sm:py-2.5 shadow-[0_10px_30px_rgba(0,0,0,0.3)]'
-          : 'py-3.5 sm:py-5 shadow-none'
+          : 'py-2.5 sm:py-5 shadow-none'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-8 md:px-12 lg:px-16">
         {/* Main Navigation Row */}
         <div className="flex items-center justify-between gap-2 sm:gap-4">
           {/* Left Zone: Back to Home (when on category page) + Brand Mascot Logo */}
-          <div className="flex items-center gap-2.5 sm:gap-3.5 min-w-0">
+          <div className="flex items-center gap-1.5 sm:gap-3.5 min-w-0">
             {activeCategoryPage !== null && (
               <button
                 type="button"
                 onClick={onNavigateHome}
-                className={`flex items-center gap-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-white ${
+                className={`flex items-center gap-1 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-white ${
                   isScrolled
-                    ? 'px-3 py-1.5 text-xs'
-                    : 'px-3.5 py-2 text-xs sm:text-sm'
+                    ? 'px-2.5 py-1 text-[11px] sm:text-xs'
+                    : 'px-2.5 sm:px-3.5 py-1.5 sm:py-2 text-[11px] sm:text-sm'
                 }`}
               >
-                <ArrowLeft className="w-3.5 h-3.5 stroke-[2.5]" />
-                <span>Back to Home</span>
+                <ArrowLeft className="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[2.5]" />
+                <span className="hidden xs:inline sm:inline">Back to Home</span>
+                <span className="xs:hidden">Home</span>
               </button>
             )}
 
@@ -179,18 +180,18 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
               type="button"
               onClick={onNavigateHome}
               aria-label="ZaidBites Home"
-              className="group flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 rounded-full transition-transform duration-150 hover:scale-103 active:scale-97 cursor-pointer shrink-0"
+              className="group flex items-center gap-1.5 sm:gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 rounded-full transition-transform duration-150 hover:scale-103 active:scale-97 cursor-pointer shrink-0"
             >
               <BrandMascotLogo
                 className={`text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.15)] transition-all duration-300 ${
-                  isScrolled ? 'w-8 h-8 sm:w-8 sm:h-8' : 'w-9 h-9 sm:w-10 sm:h-10'
+                  isScrolled ? 'w-7 h-7 sm:w-8 sm:h-8' : 'w-8 h-8 sm:w-10 sm:h-10'
                 }`}
                 accentColor={currentAccentColor}
               />
               <span
                 className={`font-extrabold tracking-tight text-white transition-all duration-300 ${
                   activeCategoryPage !== null ? 'hidden sm:inline' : 'inline'
-                } ${isScrolled ? 'text-base sm:text-lg' : 'text-lg sm:text-xl'}`}
+                } ${isScrolled ? 'text-base sm:text-lg' : 'text-base sm:text-xl'}`}
               >
                 ZaidBites
               </span>
@@ -235,7 +236,7 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
           </nav>
 
           {/* Right Zone: Search & Sticky Cart Button */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             <AnimatePresence initial={false}>
               {searchOpen && (
                 <motion.form
@@ -263,13 +264,13 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
               onClick={() => setSearchOpen((prev) => !prev)}
               aria-label={searchOpen ? 'Close search' : 'Search menu'}
               className={`rounded-full flex items-center justify-center text-white hover:bg-white/15 transition-all duration-150 hover:scale-105 active:scale-95 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white ${
-                isScrolled ? 'w-8 h-8' : 'w-9 h-9'
+                isScrolled ? 'w-7 h-7 sm:w-8 sm:h-8' : 'w-8 h-8 sm:w-9 sm:h-9'
               }`}
             >
               {searchOpen ? (
-                <X className="w-4 h-4" />
+                <X className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               ) : (
-                <Search className="w-4 h-4 stroke-[2.4]" />
+                <Search className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.4]" />
               )}
             </button>
 
@@ -279,11 +280,11 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
                 onClick={onNavigateAdmin}
                 aria-label="Open Admin Dashboard"
                 title="Admin Dashboard"
-                className={`rounded-full flex items-center gap-1.5 text-white/90 hover:text-white bg-white/10 hover:bg-white/20 transition-all duration-150 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white ${
-                  isScrolled ? 'px-2.5 py-1.5 text-xs' : 'px-3 py-2 text-xs'
+                className={`rounded-full flex items-center gap-1 sm:gap-1.5 text-white/90 hover:text-white bg-white/10 hover:bg-white/20 transition-all duration-150 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white ${
+                  isScrolled ? 'px-2 py-1 text-[11px] sm:text-xs' : 'px-2.5 sm:px-3 py-1.5 sm:py-2 text-[11px] sm:text-xs'
                 }`}
               >
-                <ShieldCheck className="w-3.5 h-3.5 text-[#FCC419] shrink-0" />
+                <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#FCC419] shrink-0" />
                 <span className="hidden lg:inline font-semibold">
                   {isAdmin ? 'Admin' : 'Admin Login'}
                 </span>
@@ -294,26 +295,26 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
               type="button"
               onClick={onOpenCart}
               aria-label={`Open shopping cart with ${cartCount} items`}
-              className={`flex items-center gap-2 rounded-full bg-[#EF3E36] hover:bg-[#DC2626] text-white font-semibold shadow-[0_6px_16px_rgba(239,62,54,0.4)] transition-all duration-200 hover:scale-104 active:scale-96 cursor-pointer whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-white ${
+              className={`flex items-center gap-1.5 sm:gap-2 rounded-full bg-[#EF3E36] hover:bg-[#DC2626] text-white font-semibold shadow-[0_6px_16px_rgba(239,62,54,0.4)] transition-all duration-200 hover:scale-104 active:scale-96 cursor-pointer whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-white ${
                 isScrolled
-                  ? 'px-3 sm:px-3.5 py-1.5 text-xs'
-                  : 'px-3.5 sm:px-4 py-2 text-xs sm:text-sm'
+                  ? 'px-2.5 sm:px-3.5 py-1 sm:py-1.5 text-xs'
+                  : 'px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm'
               }`}
             >
               <ShoppingBag className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.2] shrink-0" />
               <span className="hidden xs:inline sm:inline">Cart</span>
-              <span className="min-w-[18px] h-[18px] px-1.5 rounded-full bg-white text-[#EF3E36] text-[11px] font-bold flex items-center justify-center shadow-xs tabular-nums">
+              <span className="min-w-[17px] h-[17px] sm:min-w-[18px] sm:h-[18px] px-1 sm:px-1.5 rounded-full bg-white text-[#EF3E36] text-[10px] sm:text-[11px] font-bold flex items-center justify-center shadow-xs tabular-nums">
                 {cartCount}
               </span>
             </button>
           </div>
         </div>
 
-        {/* Mobile Category Navigation Row (Compact, Zero Horizontal Overflow) */}
+        {/* Mobile Category Navigation Bar (Compact Horizontal Scrollable Bar, 320px–430px Friendly) */}
         <nav
           aria-label="Mobile Food Categories"
-          className={`flex md:hidden items-center justify-between gap-1 w-full transition-all duration-300 ${
-            isScrolled ? 'mt-1.5 pt-1.5' : 'mt-2.5 pt-2'
+          className={`flex md:hidden items-center overflow-x-auto no-scrollbar py-1 px-0.5 gap-1.5 w-full transition-all duration-300 ${
+            isScrolled ? 'mt-1 pt-1' : 'mt-1.5 pt-1.5'
           } ${
             showSolidBackdrop
               ? 'border-t border-white/10'
@@ -332,12 +333,12 @@ export const Navbar: React.FC<NavbarProps> = React.memo(({
                     ? { backgroundColor: cat.accentColor }
                     : undefined
                 }
-                className={`flex-1 py-1.5 px-1.5 rounded-full text-[11px] sm:text-xs font-semibold text-center tracking-normal transition-all duration-200 cursor-pointer truncate focus:outline-none focus-visible:ring-2 focus-visible:ring-white ${
+                className={`shrink-0 py-1 sm:py-1.5 px-3 sm:px-3.5 rounded-full text-xs font-semibold text-center tracking-normal transition-all duration-200 cursor-pointer whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-white ${
                   isActive
-                    ? 'text-white shadow-xs'
+                    ? 'text-white shadow-xs scale-102 font-bold'
                     : showSolidBackdrop
                     ? 'bg-white/[0.08] text-white/85 hover:text-white'
-                    : 'bg-black/20 text-white/95 hover:bg-black/30'
+                    : 'bg-black/25 text-white/95 hover:bg-black/35'
                 }`}
               >
                 {cat.name}

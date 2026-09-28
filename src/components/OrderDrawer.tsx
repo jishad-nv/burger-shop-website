@@ -238,7 +238,7 @@ export const OrderDrawer: React.FC<OrderDrawerProps> = ({
             exit={{ x: '100%' }}
             transition={{ type: 'spring', stiffness: 380, damping: 34 }}
             aria-label="Shopping Cart and Checkout"
-            className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-md bg-[#111111] text-white shadow-2xl flex flex-col justify-between p-6 sm:p-7 border-l border-white/10"
+            className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-full sm:max-w-md bg-[#111111] text-white shadow-2xl flex flex-col justify-between p-4 sm:p-7 border-l border-white/10"
           >
             <div className="flex flex-col flex-1 min-h-0">
               {/* Drawer Header */}

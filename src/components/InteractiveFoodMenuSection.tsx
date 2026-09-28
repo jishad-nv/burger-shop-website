@@ -144,7 +144,7 @@ export const InteractiveFoodMenuSection: React.FC<InteractiveFoodMenuSectionProp
     <section
       id="section-interactive-menu"
       aria-label="Interactive Food Menu"
-      className="relative w-full py-20 sm:py-24 px-6 sm:px-10 md:px-14 lg:px-20 transition-colors duration-350 overflow-hidden"
+      className="relative w-full py-12 sm:py-24 px-3.5 sm:px-10 md:px-14 lg:px-20 transition-colors duration-350 overflow-hidden"
       style={{ backgroundColor: currentTheme.sectionBg }}
     >
       {/* Smooth Crossfading Category Background Gradient (340ms cubic-bezier color transition) */}
@@ -186,11 +186,11 @@ export const InteractiveFoodMenuSection: React.FC<InteractiveFoodMenuSectionProp
             Interactive Signature Menu · Freshly Prepared To Order
           </motion.span>
 
-          <h2 className="font-display-hero text-5xl sm:text-6xl md:text-7xl text-[#141414] tracking-wide leading-[0.95]">
+          <h2 className="font-display-hero text-4xl sm:text-6xl md:text-7xl text-[#141414] tracking-wide leading-[0.95]">
             EXPLORE OUR MENU
           </h2>
 
-          <p className="mt-3 text-sm sm:text-base text-black/65 max-w-xl leading-relaxed">
+          <p className="mt-2.5 sm:mt-3 text-xs sm:text-base text-black/65 max-w-xl leading-relaxed">
             Switch between our three signature kitchens below. Every dish is crafted fresh with bold flavors and priced in Indian Rupees (₹).
           </p>
 
@@ -198,7 +198,7 @@ export const InteractiveFoodMenuSection: React.FC<InteractiveFoodMenuSectionProp
           <div
             role="tablist"
             aria-label="Food Menu Categories"
-            className="mt-8 p-2 rounded-3xl bg-white/95 backdrop-blur-md border border-black/10 shadow-[0_18px_45px_rgba(0,0,0,0.08)] inline-flex flex-wrap sm:flex-nowrap items-center justify-center gap-2 sm:gap-3 w-full max-w-2xl"
+            className="mt-6 sm:mt-8 p-1.5 sm:p-2 rounded-2xl sm:rounded-3xl bg-white/95 backdrop-blur-md border border-black/10 shadow-[0_18px_45px_rgba(0,0,0,0.08)] flex items-center overflow-x-auto no-scrollbar gap-1.5 sm:gap-3 w-full max-w-2xl justify-start sm:justify-center"
           >
             {(
               [
@@ -218,7 +218,7 @@ export const InteractiveFoodMenuSection: React.FC<InteractiveFoodMenuSectionProp
                   role="tab"
                   aria-selected={isActive}
                   onClick={() => handleSelectCategory(tab.id)}
-                  className={`relative flex-1 min-w-[145px] py-3.5 px-5 rounded-2xl text-left transition-all duration-180 cursor-pointer overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-black ${
+                  className={`relative shrink-0 flex-1 min-w-[125px] sm:min-w-[145px] py-2.5 sm:py-3.5 px-3 sm:px-5 rounded-xl sm:rounded-2xl text-left transition-all duration-180 cursor-pointer overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-black ${
                     isActive
                       ? 'text-white shadow-[0_10px_25px_rgba(0,0,0,0.18)] scale-[1.02]'
                       : 'text-[#141414] hover:bg-black/[0.04]'
@@ -233,28 +233,28 @@ export const InteractiveFoodMenuSection: React.FC<InteractiveFoodMenuSectionProp
                         stiffness: 380,
                         damping: 30,
                       }}
-                      className="absolute inset-0 z-0 rounded-2xl"
+                      className="absolute inset-0 z-0 rounded-xl sm:rounded-2xl"
                       style={{ background: tabTheme.activeTabGradient }}
                     />
                   )}
 
                   <div className="relative z-10 flex items-center justify-between gap-2">
-                    <div className="flex items-center gap-2.5 min-w-0">
+                    <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
                       <span
-                        className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-colors duration-200 ${
+                        className={`w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center shrink-0 transition-colors duration-200 ${
                           isActive
                             ? 'bg-white/20 text-white'
                             : 'bg-black/[0.05] text-[#141414]'
                         }`}
                       >
-                        <TabIcon className="w-4 h-4 stroke-[2.3]" />
+                        <TabIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.3]" />
                       </span>
                       <div className="min-w-0">
-                        <span className="font-display-hero text-xl sm:text-2xl tracking-wider block leading-none whitespace-nowrap">
+                        <span className="font-display-hero text-lg sm:text-2xl tracking-wider block leading-none whitespace-nowrap">
                           {tab.label}
                         </span>
                         <span
-                          className={`text-[10px] font-bold block mt-1 whitespace-nowrap ${
+                          className={`text-[9px] sm:text-[10px] font-bold block mt-0.5 sm:mt-1 whitespace-nowrap ${
                             isActive ? 'text-white/90' : 'text-black/50'
                           }`}
                         >
@@ -272,7 +272,7 @@ export const InteractiveFoodMenuSection: React.FC<InteractiveFoodMenuSectionProp
         {/* ====================================================================
          * DYNAMIC CATEGORY SHOWCASE BANNER WITH SIMULTANEOUS FOOD & INGREDIENT ANIMATION
          * ================================================================== */}
-        <div className="relative rounded-[2rem] mb-10 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.14)]">
+        <div className="relative rounded-2xl sm:rounded-[2rem] mb-8 sm:mb-10 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.14)]">
           {/* Smoothly Crossfading Banner Gradient */}
           <AnimatePresence initial={false}>
             <motion.div
@@ -286,7 +286,7 @@ export const InteractiveFoodMenuSection: React.FC<InteractiveFoodMenuSectionProp
             />
           </AnimatePresence>
 
-          <div className="relative z-10 p-6 sm:p-8 text-white flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+          <div className="relative z-10 p-4 sm:p-8 text-white flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 sm:gap-6">
             {/* Left Copy */}
             <AnimatePresence mode="popLayout">
               <motion.div
@@ -295,15 +295,15 @@ export const InteractiveFoodMenuSection: React.FC<InteractiveFoodMenuSectionProp
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 18 }}
                 transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-                className="max-w-xl space-y-2"
+                className="max-w-xl space-y-1.5 sm:space-y-2"
               >
-                <div className="flex flex-wrap items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-white/90">
-                  <Sparkles className="w-3.5 h-3.5" />
+                <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-white/90">
+                  <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   <span>{currentTheme.subtitle}</span>
                   <span aria-hidden="true">·</span>
                   <span>{currentTheme.priceRange}</span>
                 </div>
-                <h3 className="font-display-hero text-3xl sm:text-5xl tracking-wide leading-none">
+                <h3 className="font-display-hero text-2xl sm:text-4xl lg:text-5xl tracking-wide leading-tight sm:leading-none">
                   {currentTheme.label} COLLECTION (6 ITEMS)
                 </h3>
                 <p className="text-xs sm:text-sm text-white/90 leading-relaxed max-w-xl">
@@ -313,13 +313,13 @@ export const InteractiveFoodMenuSection: React.FC<InteractiveFoodMenuSectionProp
             </AnimatePresence>
 
             {/* Right Quick Dietary Filters + Simultaneous Category Food & Floating Ingredients Stage */}
-            <div className="flex flex-wrap items-center gap-4 self-stretch lg:self-center justify-between lg:justify-end w-full lg:w-auto">
-              <div className="flex flex-wrap items-center gap-1.5 bg-black/25 backdrop-blur-md p-1.5 rounded-2xl border border-white/15">
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-4 self-stretch lg:self-center justify-between lg:justify-end w-full lg:w-auto">
+              <div className="flex items-center overflow-x-auto no-scrollbar gap-1 bg-black/25 backdrop-blur-md p-1 rounded-xl sm:rounded-2xl border border-white/15 w-full sm:w-auto">
                 {(
                   [
                     { id: 'all', label: 'All (6)' },
-                    { id: 'veg', label: 'Veg Only' },
-                    { id: 'non-veg', label: 'Chicken / Egg' },
+                    { id: 'veg', label: 'Veg' },
+                    { id: 'non-veg', label: 'Non-Veg' },
                     { id: 'spicy', label: 'Spicy' },
                   ] as const
                 ).map((f) => (
@@ -327,7 +327,7 @@ export const InteractiveFoodMenuSection: React.FC<InteractiveFoodMenuSectionProp
                     key={f.id}
                     type="button"
                     onClick={() => setDietFilter(f.id)}
-                    className={`px-3.5 py-1.5 rounded-xl text-xs font-extrabold transition-all duration-150 cursor-pointer whitespace-nowrap ${
+                    className={`shrink-0 flex-1 sm:flex-initial px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-extrabold transition-all duration-150 cursor-pointer whitespace-nowrap text-center ${
                       dietFilter === f.id
                         ? 'bg-white text-[#141414] shadow-xs'
                         : 'text-white/85 hover:bg-white/15'

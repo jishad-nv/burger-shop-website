@@ -89,7 +89,7 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({
     <section
       id="section-categories"
       aria-label="Food Categories"
-      className="relative w-full py-20 sm:py-24 px-6 sm:px-10 md:px-14 lg:px-20 bg-[#FFFDF9]"
+      className="relative w-full py-12 sm:py-24 px-3.5 sm:px-10 md:px-14 lg:px-20 bg-[#FFFDF9]"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
@@ -98,23 +98,23 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.36, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12"
+          className="flex flex-col md:flex-row md:items-end justify-between gap-3 sm:gap-4 mb-8 sm:mb-12"
         >
           <div>
-            <span className="inline-block text-xs sm:text-[13px] font-semibold tracking-wide text-[#D8740A] mb-1.5">
+            <span className="inline-block text-xs sm:text-[13px] font-semibold tracking-wide text-[#D8740A] mb-1">
               Explore Our Menu
             </span>
             <h2 className="text-2xl sm:text-[28px] lg:text-[32px] font-extrabold text-[#141414] tracking-tight leading-[1.2]">
               Choose a Category
             </h2>
           </div>
-          <p className="text-sm sm:text-[15px] text-black/70 max-w-md leading-[1.6]">
+          <p className="text-xs sm:text-[15px] text-black/70 max-w-md leading-[1.5] sm:leading-[1.6]">
             Select any category below to view its freshly prepared menu items right here and add your favorites to the cart.
           </p>
         </motion.div>
 
         {/* Responsive 4-Card Grid: 2 columns on mobile, 4 columns in a row on desktop */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-7">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 md:gap-7">
           {categories.map((cat, idx) => {
             const isSelected = selectedCategory === cat.id;
             const isAnotherSelected =
@@ -137,9 +137,9 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({
                 }}
                 whileHover={{ y: -8, scale: 1.015 }}
                 whileTap={{ scale: 0.98 }}
-                className={`group relative rounded-[2rem] p-5 sm:p-7 text-left overflow-hidden flex flex-col justify-between min-h-[270px] sm:min-h-[340px] transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-black ${
+                className={`group relative rounded-2xl sm:rounded-[2rem] p-3.5 sm:p-7 text-left overflow-hidden flex flex-col justify-between min-h-[200px] xs:min-h-[230px] sm:min-h-[340px] transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-black ${
                   isSelected
-                    ? 'ring-4 ring-[#141414] ring-offset-4 ring-offset-[#FFFDF9] shadow-[0_24px_52px_rgba(0,0,0,0.22)] -translate-y-1.5'
+                    ? 'ring-3 sm:ring-4 ring-[#141414] ring-offset-2 sm:ring-offset-4 ring-offset-[#FFFDF9] shadow-[0_24px_52px_rgba(0,0,0,0.22)] -translate-y-1'
                     : isAnotherSelected
                     ? 'opacity-80 hover:opacity-100 shadow-[0_12px_28px_rgba(0,0,0,0.08)] hover:shadow-[0_22px_44px_rgba(0,0,0,0.16)]'
                     : 'shadow-[0_14px_34px_rgba(0,0,0,0.09)] hover:shadow-[0_24px_48px_rgba(0,0,0,0.18)]'
@@ -147,30 +147,30 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({
                 style={{ background: cat.accentGradient }}
               >
                 {/* Soft Ambient Stage Glow */}
-                <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 sm:w-52 sm:h-52 rounded-full bg-white/35 blur-2xl transition-transform duration-200 group-hover:scale-120" />
+                <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 sm:w-52 sm:h-52 rounded-full bg-white/35 blur-2xl transition-transform duration-200 group-hover:scale-120" />
 
                 {/* Top Row: Item Count & Clickable Arrow Indicator */}
-                <div className="relative z-20 flex items-center justify-between w-full gap-2">
-                  <span className="text-[11px] sm:text-xs font-semibold tracking-normal text-white/95 drop-shadow-[0_1px_4px_rgba(0,0,0,0.25)] whitespace-nowrap">
+                <div className="relative z-20 flex items-center justify-between w-full gap-1.5 sm:gap-2">
+                  <span className="text-[10px] sm:text-xs font-semibold tracking-normal text-white/95 drop-shadow-[0_1px_4px_rgba(0,0,0,0.25)] whitespace-nowrap truncate">
                     {cat.itemCount}
                   </span>
                   <span
-                    className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-200 shadow-md shrink-0 ${
+                    className={`w-6 h-6 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-200 shadow-md shrink-0 ${
                       isSelected
                         ? 'bg-[#141414] text-white rotate-135 scale-110'
                         : 'bg-white text-[#141414] group-hover:rotate-45 group-hover:scale-110'
                     }`}
                   >
-                    <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
+                    <ArrowUpRight className="w-3.5 h-3.5 sm:w-5 sm:h-5 stroke-[2.5]" />
                   </span>
                 </div>
 
                 {/* Center High-Quality Realistic Food Cutout Image */}
-                <div className="relative z-10 my-2 sm:my-4 h-32 sm:h-44 w-full flex flex-col items-center justify-center">
+                <div className="relative z-10 my-1.5 sm:my-4 h-24 xs:h-28 sm:h-44 w-full flex flex-col items-center justify-center">
                   <div
-                    className={`w-32 h-32 sm:w-44 sm:h-44 transition-transform duration-200 ease-out flex items-center justify-center ${
+                    className={`w-24 h-24 xs:w-28 xs:h-28 sm:w-44 sm:h-44 transition-transform duration-200 ease-out flex items-center justify-center ${
                       isSelected
-                        ? 'scale-110 -translate-y-1.5 -rotate-3'
+                        ? 'scale-110 -translate-y-1 -rotate-3'
                         : 'group-hover:scale-110 group-hover:-translate-y-1.5 group-hover:-rotate-3'
                     }`}
                   >
@@ -180,16 +180,16 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <div className="w-24 sm:w-32 h-3.5 rounded-full bg-black/30 blur-md -mt-2 transition-all duration-200 group-hover:w-20 group-hover:opacity-50" />
+                  <div className="w-18 sm:w-32 h-2.5 sm:h-3.5 rounded-full bg-black/30 blur-md -mt-1.5 sm:-mt-2 transition-all duration-200 group-hover:w-20 group-hover:opacity-50" />
                 </div>
 
                 {/* Bottom Category Name, Tagline & Clear Clickable Action */}
-                <div className="relative z-20 pt-2.5 border-t border-white/20 flex items-end justify-between gap-2">
-                  <div>
-                    <h3 className="text-xl sm:text-2xl lg:text-[26px] font-extrabold text-white tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.22)] leading-[1.2]">
+                <div className="relative z-20 pt-1.5 sm:pt-2.5 border-t border-white/20 flex items-end justify-between gap-1.5 sm:gap-2">
+                  <div className="min-w-0">
+                    <h3 className="text-sm xs:text-base sm:text-2xl lg:text-[26px] font-extrabold text-white tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.22)] leading-tight truncate">
                       {cat.name}
                     </h3>
-                    <p className="text-xs sm:text-sm font-medium text-white/95 line-clamp-2 mt-1 leading-[1.45]">
+                    <p className="text-[10px] sm:text-sm font-medium text-white/95 line-clamp-1 sm:line-clamp-2 mt-0.5 sm:mt-1 leading-tight sm:leading-[1.45]">
                       {cat.tagline}
                     </p>
                   </div>
@@ -269,7 +269,7 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({
                 {/* 6-Product Grid for the Selected Category */}
                 <div
                   aria-label={`${selectedCategoryMeta.title} Products`}
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8"
                 >
                   {selectedCategoryProducts.map((product, idx) => (
                     <ProductCard
@@ -493,7 +493,7 @@ export const CategoryProductPage: React.FC<CategoryProductPageProps> = ({
       <div className="h-[96px] md:h-[76px] shrink-0" aria-hidden="true" />
 
       {/* Category Hero Banner */}
-      <section className="px-6 sm:px-10 md:px-14 lg:px-20 pt-8 sm:pt-12 pb-6">
+      <section className="px-3.5 sm:px-10 md:px-14 lg:px-20 pt-6 sm:pt-12 pb-4 sm:pb-6">
         <div className="max-w-7xl mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
@@ -502,27 +502,27 @@ export const CategoryProductPage: React.FC<CategoryProductPageProps> = ({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -14 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="relative rounded-[2rem] p-6 sm:p-10 md:p-12 text-white overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.14)] flex flex-col md:flex-row items-center justify-between gap-6"
+              className="relative rounded-2xl sm:rounded-[2rem] p-4 sm:p-10 md:p-12 text-white overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.14)] flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6"
               style={{ background: meta.bannerGradient }}
             >
               <div className="max-w-xl z-10 text-center md:text-left">
-                <div className="inline-flex items-center gap-2 text-xs sm:text-[13px] font-semibold tracking-wide text-white/90 mb-2">
+                <div className="inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-[13px] font-semibold tracking-wide text-white/90 mb-1.5 sm:mb-2">
                   <span>ZaidBites Menu</span>
                   <span aria-hidden="true">·</span>
                   <span>{categoryProducts.length} Items Available</span>
                 </div>
-                <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-extrabold tracking-tight text-white leading-[1.15]">
+                <h1 className="text-2xl sm:text-4xl lg:text-[44px] font-extrabold tracking-tight text-white leading-tight sm:leading-[1.15]">
                   {categoryCard.name} Menu
                 </h1>
-                <p className="text-base sm:text-lg font-semibold text-white/95 mt-2.5 leading-snug">
+                <p className="text-sm sm:text-lg font-semibold text-white/95 mt-1.5 sm:mt-2.5 leading-snug">
                   {meta.subtitle}
                 </p>
-                <p className="text-sm sm:text-[15px] text-white/90 mt-2 leading-[1.6]">
+                <p className="text-xs sm:text-[15px] text-white/90 mt-1.5 sm:mt-2 leading-[1.5] sm:leading-[1.6]">
                   {meta.description}
                 </p>
               </div>
 
-              <div className="relative z-10 w-36 h-36 sm:w-48 sm:h-48 shrink-0 flex items-center justify-center">
+              <div className="relative z-10 w-28 h-28 xs:w-32 xs:h-32 sm:w-48 sm:h-48 shrink-0 flex items-center justify-center">
                 <div className="absolute inset-0 rounded-full bg-white/25 blur-2xl" />
                 <TransparentFoodImage
                   src={categoryCard.image}
@@ -534,14 +534,14 @@ export const CategoryProductPage: React.FC<CategoryProductPageProps> = ({
           </AnimatePresence>
 
           {/* Filter Bar: Showing item count + All / Veg / Non-Veg Toggle */}
-          <div className="mt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <p className="text-sm sm:text-[15px] font-medium text-black/70">
+          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+            <p className="text-xs sm:text-[15px] font-medium text-black/70">
               Showing <span className="font-semibold text-[#141414] tabular-nums">{filteredProducts.length}</span> items in{' '}
               <span className="font-semibold text-[#141414]">{categoryCard.name}</span>
             </p>
 
             {categoryId !== 'drinks' && (
-              <div className="inline-flex items-center gap-1 p-1 rounded-full bg-black/[0.06] self-start sm:self-auto">
+              <div className="inline-flex items-center gap-1 p-1 rounded-full bg-black/[0.06] self-start sm:self-auto overflow-x-auto no-scrollbar">
                 {[
                   { id: 'all', label: 'All Items' },
                   { id: 'veg', label: 'Pure Veg' },
@@ -553,7 +553,7 @@ export const CategoryProductPage: React.FC<CategoryProductPageProps> = ({
                       key={tab.id}
                       type="button"
                       onClick={() => setDietFilter(tab.id as 'all' | 'veg' | 'non-veg')}
-                      className={`px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-semibold transition-all duration-150 cursor-pointer whitespace-nowrap ${
+                      className={`px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-[13px] font-semibold transition-all duration-150 cursor-pointer whitespace-nowrap ${
                         active
                           ? 'bg-[#141414] text-white shadow-xs'
                           : 'text-black/65 hover:text-black'
@@ -572,10 +572,10 @@ export const CategoryProductPage: React.FC<CategoryProductPageProps> = ({
       {/* Product Cards Grid (6 items per category) */}
       <section
         aria-label={`${meta.title} Products`}
-        className="px-6 sm:px-10 md:px-14 lg:px-20 pt-2 pb-20"
+        className="px-3.5 sm:px-10 md:px-14 lg:px-20 pt-2 pb-16 sm:pb-20"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
             {filteredProducts.map((product, idx) => (
               <ProductCard
                 key={product.id}

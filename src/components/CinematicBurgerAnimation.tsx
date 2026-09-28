@@ -309,7 +309,7 @@ export const CinematicBurgerAnimation: React.FC<CinematicBurgerAnimationProps> =
   return (
     <div
       ref={containerRef}
-      className="relative w-full rounded-[2rem] overflow-hidden bg-gradient-to-br from-[#1B120C] via-[#28160B] to-[#140C07] border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.35)] p-6 sm:p-10 lg:p-12 my-10"
+      className="relative w-full rounded-2xl sm:rounded-[2rem] overflow-hidden bg-gradient-to-br from-[#1B120C] via-[#28160B] to-[#140C07] border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.35)] p-4 sm:p-10 lg:p-12 my-8 sm:my-10"
     >
       {/* Warm Commercial Studio Spotlight Glow */}
       <div
@@ -319,19 +319,19 @@ export const CinematicBurgerAnimation: React.FC<CinematicBurgerAnimationProps> =
         }}
       />
 
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-center">
         {/* Left Column: Commercial Controls, Story & Layer Callouts */}
-        <div className="lg:col-span-5 space-y-6 text-white">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F59F00]/20 border border-[#F59F00]/40 text-[#FCC419] text-xs font-extrabold uppercase tracking-widest">
-            <Flame className="w-3.5 h-3.5" />
+        <div className="lg:col-span-5 space-y-4 sm:space-y-6 text-white">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#F59F00]/20 border border-[#F59F00]/40 text-[#FCC419] text-[11px] sm:text-xs font-extrabold uppercase tracking-widest">
+            <Flame className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
             <span>Simultaneous Burger &amp; Ingredient Craft</span>
           </div>
 
           <div>
-            <h3 className="font-display-hero text-4xl sm:text-5xl lg:text-6xl text-white tracking-wide leading-[0.92]">
+            <h3 className="font-display-hero text-3xl sm:text-5xl lg:text-6xl text-white tracking-wide leading-tight sm:leading-[0.92]">
               ANATOMY OF PERFECTION
             </h3>
-            <p className="mt-3 text-sm sm:text-base text-white/75 leading-relaxed">
+            <p className="mt-2 sm:mt-3 text-xs sm:text-base text-white/75 leading-relaxed">
               Watch the sesame brioche buns, flame-seared patty, melted cheddar, crisp lettuce, heirloom tomatoes, purple onion rings, and dill pickles assemble simultaneously while fresh burger ingredients orbit the scene.
             </p>
           </div>
@@ -420,7 +420,7 @@ export const CinematicBurgerAnimation: React.FC<CinematicBurgerAnimationProps> =
         </div>
 
         {/* Right Column: 3D Physical Burger Assembly + Simultaneous Orbiting Burger Ingredients */}
-        <div className="lg:col-span-7 relative h-[470px] sm:h-[520px] flex items-center justify-center select-none">
+        <div className="lg:col-span-7 relative h-[380px] sm:h-[470px] lg:h-[520px] flex items-center justify-center select-none overflow-hidden sm:overflow-visible">
           {/* SIMULTANEOUS ORBITING REALISTIC BURGER INGREDIENTS (Shares exact playKey & t=0 timeline) */}
           <div
             key={`orbit-${mode}-${playKey}`}

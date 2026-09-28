@@ -47,7 +47,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     accentColor: '#E58619',
     titleTracking: 'tracking-[-0.01em]',
     dishRotation: 0,
-    dishScale: 'w-[260px] sm:w-[340px] md:w-[400px] lg:w-[450px]',
+    dishScale: 'w-[210px] xs:w-[260px] sm:w-[340px] md:w-[400px] lg:w-[450px]',
   },
   {
     id: 'roll',
@@ -66,7 +66,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     accentColor: '#71C208',
     titleTracking: 'tracking-[0.12em] pl-[0.12em]',
     dishRotation: -4,
-    dishScale: 'w-[270px] sm:w-[360px] md:w-[430px] lg:w-[480px]',
+    dishScale: 'w-[220px] xs:w-[270px] sm:w-[360px] md:w-[430px] lg:w-[480px]',
   },
   {
     id: 'pizza',
@@ -85,6 +85,6 @@ export const HERO_SLIDES: HeroSlide[] = [
     accentColor: '#E03131',
     titleTracking: 'tracking-[0.04em] pl-[0.04em]',
     dishRotation: -2,
-    dishScale: 'w-[270px] sm:w-[360px] md:w-[430px] lg:w-[480px]',
+    dishScale: 'w-[220px] xs:w-[270px] sm:w-[360px] md:w-[430px] lg:w-[480px]',
   },
 ];
